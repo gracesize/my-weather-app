@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html long="en">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
-    <link href="
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    "
-    <title>My Weather App</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Weather App</title>
   </head>
   <body>
     <div class="weather-app">
       <header>
-        <form class="search-form">
+        <form class="search-form" id="search-form">
           <input
             type="search"
-            placeholder="Enter a city..."
+            placeholder="Enter a city.."
             required
+            id="search-form-input"
             class="search-form-input"
           />
           <input type="submit" value="Search" class="search-form-button" />
@@ -30,28 +30,26 @@
       <main>
         <div class="weather-app-data">
           <div>
-            <h1 class="weath-app-city">Paris</h1>
+            <h1 class="weather-app-city" id="city">Paris</h1>
             <p class="weather-app-details">
               Tuesday 14:49, scattered clouds
               <br />
-              Humidity: 66%, Wind 3.13 km/h
+              Humidity: <strong>66%</strong>, Wind: <strong>3.13km/h</strong>
             </p>
           </div>
-          <div class="weather-app-temp-container">
-            <div class="weather-app-icon">⛅️</div>
-            <div class="weather-app-temp">12</div>
-            <div clss="weather-app-unit">°C</div>
+          <div class="weather-app-temperature-container">
+            <div class="weather-app-icon">🌤️</div>
+            <div class="weather-app-temperature">12</div>
+            <div class="weatehr-app-unit">°C</div>
           </div>
         </div>
       </main>
 
       <footer>
-        Coded by
-        <a href="https://github.com/gracesize/my-weather-app" target="_blank">
-          Grace Sizemore
-        </a>
-        hosted on GitHub.
+        This project was coded by
+        <a href="https://github.com/gracesize" target="_blank"> Grace Sizemore</a>
       </footer>
     </div>
+    <script src="src/index.js"></script>
   </body>
 </html>
