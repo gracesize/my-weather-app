@@ -7,10 +7,11 @@ function refreshWeather(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
+  let iconElement = document.querySelector("#icon");
+
 
 console.log(response.data.condition.description);
 
-  cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
    timeElement.innerHTML = `${date.getDay()} ${date.getHours()}:${date.getMinutes()}`;
  descriptionElement.innerHTML = response.data.condition.description;
@@ -34,8 +35,9 @@ return `${day} ${hours}:${minutes}`
 
 function searchCity(city) {
   let apiKey = "9a708b23a8ct6o0b4d94fd3134a86038";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
   axios.get(apiUrl).then(refreshWeather);
+
 }
 
 function handleSearchSubmit(event) {
@@ -49,7 +51,6 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 function submitButton(event) {
-  // this prevents from changes in the webpage even if the you reload the web page
   event.preventDefault();
 
   let searchInput = document.querySelector("#search-form-input");
