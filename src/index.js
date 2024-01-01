@@ -7,10 +7,10 @@ function refreshWeather(response) {
   temperatureElement.innerHTML = Math.round(temperature);
 }
 
-function searchCity(city){
+function searchCity(city) {
   let apiKey = "9a708b23a8ct6o0b4d94fd3134a86038";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  axios.get(apiUrl).then(refreshWeather);
 }
 
 function handleSearchSubmit(event) {
@@ -31,4 +31,4 @@ function submitButton(event) {
 
   searchCity(searchInput.value);
 }
-searchCity(Miami);
+searchCity("Miami");
