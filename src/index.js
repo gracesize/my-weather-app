@@ -18,6 +18,7 @@ console.log(response.data.condition.description);
  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
  windSpeedElement.innerHTML =`${Math.round(response.data.wind.speed)}km/h`;
  temperatureElement.innerHTML = Math.round(temperature);
+ cityElement.innerHTML = response.data.city;
 }
 
 function formatDate(date) {
@@ -41,7 +42,7 @@ function searchCity(city) {
 }
 
 function handleSearchSubmit(event) {
-  event.prevenDefault();
+  event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
 
   searchCity(searchInput.value);
