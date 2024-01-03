@@ -16,7 +16,7 @@ console.log(response.data.condition.description);
    timeElement.innerHTML = `${date.getDay()} ${date.getHours()}:${date.getMinutes()}`;
  descriptionElement.innerHTML = response.data.condition.description;
  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
- windSpeedElement.innerHTML =`${Math.round(response.data.wind.speed)}km/h`;
+ windSpeedElement.innerHTML =`${Math.round(response.data.wind.speed)} mph`;
  temperatureElement.innerHTML = Math.round(temperature);
  cityElement.innerHTML = response.data.city;
 }
@@ -36,7 +36,7 @@ return `${day} ${hours}:${minutes}`
 
 function searchCity(city) {
   let apiKey = "9a708b23a8ct6o0b4d94fd3134a86038";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(refreshWeather);
 
 }
