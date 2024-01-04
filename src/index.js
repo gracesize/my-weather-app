@@ -48,29 +48,31 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast (){
-  let forecast = document.querySelector("#forecast");
-
+function displayForecast() {
   let days = ["Tue", "Wed", "Thur", "Fri", "Sat"];
-  let forecastHtml = "";
+  let forecastHTML = `<div class="row">`;
 
-  days.forEach(function(day){
-    forecastHtml = 
-    forecastHtml + 
-    `
-    <div>
-      <div class="weather-forecast-date">${day}</div>
-        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/scattered-clouds-day.png" alt="" width="42" />
-        <div class="weather-forecast-temperatures">
-        <span class="weather-forecast-temperature-max">
-        18° </span>
-        <span class="weather-forecast-temperature-min">
-        12° </span></div>
-            </div>
-          `;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+ <div class=" col weather-forecast-day">
+  <div class="weather-forecast-date">${day}</div>
+  <div class="weather-forecast-icon">⛅</div>
+  <div class="weather-forecast-temperatures">
+    <div class="weather-forecast-temperature">
+      <span class="weather-forecast-temperature-max">18°</span>
+      <span class="weather-forecast-temperature-min">12°</span>
+    </div>
+  </div>
+</div>
+
+`;
   });
 
-  forecastElement.innerHTML = forecastHtml;
+  forecastHTML = forecastHTML + `</div>`;
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHTML;
 }
 
 let searchFormElement = document.querySelector("#search-form");
